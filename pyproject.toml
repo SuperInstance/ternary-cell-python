@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "ternary-cell"
+version = "0.1.0"
+description = "Faithful Python port of ternary-cell — cellular computing with ternary tick cycles"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
