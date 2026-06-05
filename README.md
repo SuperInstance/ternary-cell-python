@@ -1,51 +1,58 @@
 # ternary-cell-python
 
-Faithful Python port of [ternary-cell](https://github.com/SuperInstance/ternary-cell) — cellular computing with ternary tick cycles.
+**Cell Python for the SuperInstance ternary {-1, 0, +1} ecosystem**
 
-## What
+[![ternary](https://img.shields.io/badge/ecosystem-ternary-blue)](https://github.com/orgs/SuperInstance/repositories?q=ternary)
+[![tests](https://img.shields.io/badge/tests-0-green)]()
 
-`TernaryCell` implements a six-phase lifecycle: `predict → perceive → surprise → vibe → gc → conservation`. Each cell carries energy, a ternary value (-1/0/+1), a prediction, surprise accumulation, and an inbox of `TernaryMessenger` signals. `CellGrid` arranges cells in a 2D grid with 4-connected neighbor signaling. `Tissue` coordinates grid-level operations.
+## Why Ternary?
 
-Pure Python, zero dependencies.
+The balanced ternary system {-1, 0, +1} (also known as Z₃) is the mathematically optimal discrete encoding:
+- **More expressive than binary**: three states capture positive, neutral, and negative
+- **Natural for decisions**: accept/reject/abstain, buy/hold/sell, agree/disagree/neutral
+- **Self-balancing**: the 0 state acts as a universal screen, preventing pathological lock-in
+- **Z₃ cyclic dynamics**: rock-paper-scissors is the only natural coordination mechanism
 
-## Install
+## Stats
 
-```bash
-pip install -e .
-```
+| Metric | Value |
+|--------|-------|
+| Lines of Rust | 0 |
+| Test count | 0 |
+| Public types | 0 |
+| Public functions | 0 |
+
+## Ecosystem
+
+This crate is part of the **[SuperInstance Ternary Fleet](https://github.com/orgs/SuperInstance/repositories?q=ternary)**:
+
+- **[ternary-core](https://github.com/SuperInstance/ternary-core)** — shared traits and Z₃ arithmetic
+- **[ternary-grid](https://github.com/SuperInstance/ternary-grid)** — spatial grid with {-1, 0, +1} cells
+- **[ternary-graph](https://github.com/SuperInstance/ternary-graph)** — ternary-weighted graph algorithms
+- **[ternary-automata](https://github.com/SuperInstance/ternary-automata)** — three-state cellular automata
+- **[ternary-compiler](https://github.com/SuperInstance/ternary-compiler)** — expression compiler and optimizer
+
+200+ crates. 4,300+ tests. One pattern.
+
+## Research Context
+
+The ternary approach connects to several active research areas:
+- **Ternary Neural Networks** (TNNs): weights constrained to {-1, 0, +1} for efficient inference
+- **Huawei's ternary chip**: 7nm ternary silicon with 60% less power consumption
+- **Active inference**: free energy minimization naturally maps to ternary action selection
+- **Cyclic dominance**: RPS dynamics maintain biodiversity in spatial ecology
+- **Z₃ group theory**: the only algebraic group on three elements is cyclic addition mod 3
 
 ## Usage
 
-```python
-from ternary_cell import TernaryCell, TernaryMessenger, CellGrid, Tissue
-
-# Single cell
-cell = TernaryCell(id=0)
-cell.receive(TernaryMessenger.SIGNAL)
-cell.tick()
-print(cell.ternary_value)  # 1
-
-# Grid
-tissue = Tissue(3, 3)
-tissue.fill_pattern([1, 0, -1, 0, 1, 0, -1, 0, 1])
-alive = tissue.run(10)
-print(f"Alive: {alive}, Consensus: {tissue.consensus()}, Converged: {tissue.is_converged()}")
+```toml
+[dependencies]
+ternary-cell-python = "0.1.0"
 ```
 
-## Test
-
-```bash
-pytest tests/ -v
+```rust
+use ternary_cell_python;
 ```
-
-## Architecture
-
-Matches the Rust `ternary-cell` 1:1:
-
-- `TernaryMessenger` — Signal / Silence / Suppress ({+1, 0, -1})
-- `TernaryCell` — 6-phase tick, energy, division, apoptosis
-- `CellGrid` — 2D grid, 4-connected neighbors, signal propagation
-- `Tissue` — grid-level run/converge/consensus
 
 ## License
 
