@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+ternary_cell/__init__.py
+ternary_cell.egg-info/PKG-INFO
+ternary_cell.egg-info/SOURCES.txt
+ternary_cell.egg-info/dependency_links.txt
+ternary_cell.egg-info/top_level.txt
+tests/test_ternary_cell.py
