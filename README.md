@@ -79,6 +79,18 @@ The ternary cell is the atomic primitive of the γ + η = C framework. The three
 2. Frieder, G., & Luk, C. (1975). "Ternary Computers." In *Proceedings of the IEEE*. — Survey of ternary computing hardware.
 3. Hayes, B. (2001). "Third Base." *American Scientist*, 89(6), 490–494. — Popular introduction to balanced ternary.
 
+### Ternary vs Binary Comparison
+
+| Property | Binary (0, 1) | Balanced Ternary (−1, 0, +1) |
+|----------|---------------|------------------------------|
+| States per digit | 2 | 3 |
+| Information per digit | 1 bit | log₂(3) ≈ 1.585 bits |
+| Sign representation | Separate sign bit | Native (−1 is a value) |
+| Negation | Flip all bits + add 1 | Swap −1 ↔ +1, keep 0 |
+| Unknown state | Requires hack (nullable) | Native (0 = neutral/unknown) |
+
+The ternary cell's native support for an unknown/neutral state eliminates the need for nullable types or sentinel values — a significant advantage in decision-making contexts where "undecided" is a genuine third state.
+
 ## License
 
 MIT
